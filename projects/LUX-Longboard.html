@@ -31,24 +31,90 @@
   <br>
   <div class="box">
     <h1>
-        LUX Longboard Embedded Lighting
+      LUX Longboard Embedded Lighting
     </h1>
+    <a href="https://github.com/Diamond42474/LUX-Longboard-Automation" class="menu-item" target="_blank">Github Link</a>
     <h3>
-      Not documented yet!
+      The LUX Longboard project is my latest in the line of embedded development. Using the ATTiny85 (a Microchip
+      processor), I've been working on making reactive lighting for my longboard that uses the accelleration of the
+      board to determine how the lights react.
     </h3>
     <br>
     <h3>
       Technologies:
     </h3>
     <p>
+      AVR Microchip<br>
+      ATTiny85<br>
+      AVR Dude<br>
+      C <br>
+      Embedded C <br>
+      Circuit design <br>
+      Soldering <br>
+      Wiring <br>
+      Linux <br>
+      SCP (Secure CoPy)<br>
     </p>
     <h3>
       Project Details:
     </h3>
+    <p>
+      Phase One: The Inspiration<br>
+      The project started with me wanting lights on my longboard so that I can ride at night with style. While I was
+      thinking what lights to put on, I figured I'm a programmer, so why not make mine the best? So I started by
+      brainstorming ideas while I've been getting into embedded development and thought I could use the ATTiny85 for the
+      brains of the operation. I started coding up the program, researching things I've never used before such as the
+      ADC (analog to digital converter) or built-in timers for PWM. I then setup a small headless computer so if
+      anything went wrong, I wouldn't fry my main computer.
+      <br>
+      <br>
+      Phase Two: Testing<br>
+      After the initial setup, I started testing.. a LOT... I set up a m "mock longboard" using a potentiometer and a
+      bread board to imitate the acceleration and breaking of the board. Figuring out how all of the registers affected
+      the timers and adc was tricky but it was fun, so I kept going. Eventually I came up with my first model and was
+      ready to make the final design.
+      <br>
+      <br>
+      Phase Three: Wiring<br>
+      The next step to the plan was making the circuit that would be attached to my bored. I started by laying out all
+      of the components onto a PCB to see how everything would fit together, and got to soldering. From my 4 years of
+      FRC and soldering a ridiculous mount of pins, this part was fairly easy (other than the fact that to this day I
+      have to burn myself at least once). I got the board all put together and not it was ready to go!
+      <br>
+      <br>
+      Phase Four: The Downfall of Nerd-kind<br>
+      After weeks of designing, testing, wiring, and head-pounding, I had finally connected it all together and to the
+      board.. aaaaaaaaand... nothing happened... I sat there with my board wondering why on earth nothing is turning on,
+      thinking maybe something broke while I was working on it. I took my voltage meter and measured everything and it
+      all looked fine, so I plugged it back in and once again there was no light. I poked around with my voltage meter
+      for what seemed like hours until I finally figured it out. The amps going to the wire that I was tapping into to
+      werent enough, meaning that whenever I applied any load to it, the voltage immedietly dropped to about 1.9 volts,
+      which is a problem, because I need this thing at 5v. So back to the drawing board I went...
+      <br>
+      <br>
+      Phase Five: Rise of the Resistance<br>
+      After spending weeks to months on this project and it end up failing, I decided to quit.... Juuuuuuust kidding, I
+      wasn't even close to giving up, because when I want to get something done, I'm going to do it, even if it looks
+      different from what I originally planned. It was time to get back to work. Early in the planning days, I debated
+      using an accelerometer but decided against it so I could instead use the internal components and not have
+      anything outside of the already existing circuit bay in the board. But times have changed, and so have I... The
+      biggest problem I faced now was figuring out how to get the voltage supply I needed. Well for you guys that don't
+      know, electric longboards have a GIANT battery pack that's putting out about 40v and a LOT of amps. But wait, I
+      thought I needed 5v, and using resistors would waste way too much energy and cause too much heat? During this
+      process is when I found one of many beautiful things, and that's called a drop-down buck-converter! Problem
+      solved!... I might or might not have melted a component while measuring voltages earlier, so I already needed to
+      go in and re-solder the wire that connects to the battery. Some crimping for JST connectors and a little bit of
+      soldering later, I now have a solid connection to the beautiful 40v of raging electricity!
+      <br>
+      <br>
+      Phase Six: The Return of the Sixth<br>
+      Coming soon...
+    </p>
   </div>
 
   <div class="footer">
     <a href="https://github.com/Diamond42474" class="footer-link" target="_blank">Github</a>
   </div>
 </body>
+
 </html>
