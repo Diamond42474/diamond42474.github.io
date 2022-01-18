@@ -41,24 +41,24 @@ p{
 }
 .drink{
     text-align: center;
-    background-color: #721674;
+    background-color: rgba(250, 169, 22, 0.1);
     padding-block: 10px;
-    color: #E9EB9E;
+    color: #FAA916;
     border-radius: 10px;
 }
 .flavors{
     
     padding: 10px;
-    background-color: rgb(41, 40, 99);
-    color: #c9510c;
+    background-color: rgba(250, 169, 22, 0.1);
+    color: #FAA916;
     text-decoration-line: none;
     border-radius: 10px;
 }
 .flavor{
     padding: 10px;
     font-size: 50px;
-    background-color: rgb(41, 40, 40);
-    color: #c9510c;
+    background-color: rgba(250, 169, 22, 0.1);
+    color: #FAA916;
     text-decoration-line: none;
     border-radius: 10px;
     text-align: center;
