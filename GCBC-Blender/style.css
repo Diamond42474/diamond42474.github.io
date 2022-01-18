@@ -47,12 +47,9 @@ p{
     border-radius: 10px;
 }
 .flavors{
-    
-    padding: 10px;
-    background-color: rgba(250, 169, 22, 0.1);
-    color: #FAA916;
-    text-decoration-line: none;
-    border-radius: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 25px;
 }
 .flavor{
     padding: 10px;
