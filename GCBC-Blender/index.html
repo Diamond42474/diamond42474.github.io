@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script src="blender.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <h1 class="title">GCBC Blender</h1>
+            <div class="menu">
+                <table align="center">
+                  <th>
+                    <p onclick="makeLatte()" class="menu-item">Latte</p>
+                  </th>
+                  <th>
+                    <p onclick="makeLemonade()" class="menu-item">Lemonade</p>
+                  </th>
+                  <th>
+                    <p onclick="makeStampede()" class="menu-item">Stampede</p>
+                  </th>
+                  <th>
+                    <p onclick="makeTea()" class="menu-item">Tea</p>
+                  </th>
+                </table>
+              </div>
+            <div class="drink">
+                <h3>Drink :</h3>
+                <h3 id="id_type"></h3>
+                <h3>Flavors :</h3>
+                <div class="flavors">
+                    <table style="width: 50%;">
+                        <tr>
+                            <td  id="id_flavor1" class="flavor">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  id="id_flavor2" class="flavor">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  id="id_flavor3" class="flavor">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
