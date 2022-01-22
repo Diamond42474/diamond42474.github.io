@@ -1,54 +1,65 @@
+:root{
+  --backround: #082032;
+  --text: #FF4C29;
+  --box: rgb(44, 57, 75, 0.1);
+  --box-hover: rgb(44, 57, 75, 0.2);
+  --banner-gradient: radial-gradient(circle, rgba(255,76,41,0.26934523809523814) 0%, rgba(8,32,50,0) 100%);
+}
 body{
-    background-color: #333;
+    background-color: var(--backround);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(8,32,50,1) 100%);
 }
 h1{
-    color:#f5f5f5;
+    color: var(--text);
+}
+h2{
+  color: var(--text);
 }
 h3{
-  color:#c9510c;
+  color: var(--text);
 }
 h4{
-  color:#c9510c;
+  color:var(--text);
 }
 p{
-  color:#c9510c;
+  color:var(--text);
 }
 .title{
-    color:#f5f5f5;
+    color:var(--text);
     left: 0;
     top: 0;
     width: 100%;
     text-align: center;
-    background: linear-gradient(90deg, rgba(51, 51, 51,0) 0%, rgba(201,81,12,0.25) 50%, rgba(51, 51, 51,0) 100%);
+    background: var(--banner-gradient);
     padding-bottom: 10px;
     padding-top: 10px;
 }
 .title:hover{
-    color: #c9510c
+    color: white;
 }
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background: linear-gradient(90deg, rgba(51, 51, 51,0) 0%, rgba(201,81,12,0.25) 50%, rgba(51, 51, 51,0) 100%);
-    color: white;
+    background: var(--banner-gradient);
+    color: var(--text);
     text-align: center;
   }
   .footer-link:link, .footer-link:visited{
-    color: #f5f5f5;
+    color: var(--text);
     text-align: center;
     text-decoration: none;
     display: inline-block;
   }
   .footer-link:hover{
-    color: #c9510c;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block; 
   }
   .menu{
-      background-color: rgb(41, 40, 40);
+    background-color: var(--box);
       width: 100%;
       margin: auto;
       text-align: center;
@@ -59,33 +70,32 @@ p{
     }
   .menu-item{
     padding: 5px;
-    background-color: #333;
-    color: #c9510c;
+    background-color: var(--box);
     text-decoration-line: none;
     border-radius: 5px;
+    color: var(--text);
+
   }
   .menu-item:hover{
+    background-color: var(--box-hover);
       padding-left: 10px;
       padding-right: 10px;
       color: white;
   }
   .box{
     padding: 10px;
-    background-color: rgb(41, 40, 40);
-    color: #c9510c;
+    background-color: var(--box);
     text-decoration-line: none;
     border-radius: 10px;
   }
   .box-link{
     padding: 10px;
-    background-color: rgb(41, 40, 40);
-    color: #c9510c;
+    background-color: var(--box);
     text-decoration-line: none;
     border-radius: 10px;
   }
   .box-link:hover{
-    background-color: rgb(46, 45, 45);
-    color: #c9510c;
+    background-color: var(--box-hover);
     text-decoration-line: none;
     border-radius: 15px;
   }
