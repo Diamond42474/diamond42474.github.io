@@ -17,23 +17,86 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Beau+Rivage&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blaka+Hollow&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
 </head>
 
 <body style="background: radial-gradient(black 0%, #00072d 100%), #1e1e1e;">
+    <nav class="navbar navbar-light navbar-expand" id="sidebar-wrapper" style="background: rgb(0,11,40);--bs-primary: #9f6b1d;--bs-primary-rgb: 159,107,29;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none" data-bs-target="#"></button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
+                    <li class="nav-item sidebar-brand"><a class="nav-link active js-scroll-trigger" href="#page-top">Logan Miller</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="#page-top">Home</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Projects</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger">Resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
     <header>
         <h1 style="text-align: center;color: #e9ecef;">About Me</h1>
     </header>
     <div>
         <section>
-            <h1 style="text-align: center;color: #ffd600;font-size: 19px;">Who I Am</h1>
-            <p style="color: #95a2a4;">This is a test paragraph</p>
+            <h1 style="text-align: center;color: #f17706;font-size: 19px;">Who I Am</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="color: #95a2a4;">&nbsp; &nbsp; Hello, my name is Logan Miller. I'm currently finishing up my senior year at Grand Canyon University where I've been perusing a Bachelors of Science in Software Development with a minor in Cyber Security.<br>I grew up in Flagstaff Arizona around the outdoors where I did a lot of hiking, dirt-biking, ice skating, and competed in FIRST robotics FLL &amp; FRC. My family is in the construction and mining industry which led me to grow up doing very hands-on labor for work as a teenager. I did a lot of construction on apartment remodels and worked at the volcanic mine managing the flow of trucks being loaded and dropping off products in the yard. I grew up with the mindset of working hard and playing hard. I signed my first W-2 when I was 10 (as it's allowed when working for a family business) and began with cleaning and organizing. During winter breaks, I spent a lot of time up on the ski slopes enjoying Flagstaff's snow.<br><br>&nbsp; &nbsp; When I got into middle school, I got interested in FIRST Lego League (FLL) which is a robotics competition where teams of middle schoolers are tasked with a modern day problem to solve and create a product for and also a game board where LEGO's Ev3 Mindstorm robots are programmed to autonomously navigate a fielded and complete numerous tasks. This was my first taste of programming and engineering: familiarizing myself with different components and sensors that are used in the automation industry. After competing in FLL for 4 years, I continued to mentor the team as I went into high school and started competing in FIRST Robotic Competition (FRC) which is FIRST's higher-level robotics competition. FRC was when I got my first taste of "real" programming. At the time, I started learning Java as it was the main language used for programming LabView's RoboRIO robotics control unit (for more information on this, see the side notes for the FRC robotics code). Learning to program in Java really changed the way that I viewed the world. It let me think of creative new ways to solve my every-day problems. I started making applications in my free time to do everything from sending my self text message reminders to helping me calculate tedious math problems in my statistics math class. Working with an industrial control unit such as the RoboRIO also taught me a ton about how industrial components are used to get things done on a larger level. We used everything from imaging and object recognition, to LiDar sensors,&nbsp; to gyroscopes and magnetometers to manage the robot's autonomous and tele-operated game phases. FRC also taught me a lot about hardware, mechanical, and electrical design. As the materials used in FRC are relatively open to experimentation we modeled the entire robot in SolidWorks before manufacturing it using CNC machines and 3D printing making sure to run stress-simulations to ensure that we had the optimum strength-to-weight ration possible. With 150lbs aluminum machines launching objects at 50MPH and running around at ~20MPH it was important to ensure the safety of both the team and the robot. Learning from an early start to make redundant, reusable, and reliable code has helped me tremendously throughout my programming journey as it has now become second nature.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">FIRST LEGO League</h1>
+                            <p style="color: #95a2a4;">FIRST LEGO League introduces science, technology, engineering, and math (STEM) to children ages 4-16* through fun, exciting hands-on learning. Participants gain real-world problem-solving experiences through a guided, global robotics program, helping today’s students and teachers build a better future together.<br><br>Our three divisions inspire youth to experiment and grow their critical thinking, coding, and design skills through hands-on STEM learning and robotics.</p><a href="https://www.firstinspires.org/robotics/fll">FIRST LEGO League Home Page</a>
+                        </div>
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">FIRST Robotics Competition</h1>
+                            <p style="color: #95a2a4;">Under strict rules and limited time and resources, teams of high school students are challenged to build industrial-size robots to play a difficult field game in alliance with other teams, while also fundraising to meet their goals, designing a team “brand,” and advancing respect and appreciation for STEM within the local community.</p><a href="https://www.firstinspires.org/robotics/frc">FIRST Robotics Competition Home Page</a>
+                        </div>
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">Senior Year Robotics Code</h1>
+                            <p style="color: #95a2a4;">FRC 2020 is the robot code that is flashed onto the RoboRIO for the FRC competition. The robot needed the capabilities of accurate and high-speed turret maneuverability independant of the drive shaft, reliable cargo-loading with auto anti-jamming redundencies, and high-speed manuverability for on-ground performance.</p><a href="https://github.com/Coconuts2486-FRC/FRC2020">FRC 2020 GitHub Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section>
-            <h1 style="text-align: center;color: #ffd600;font-size: 19px;">Where I've Been</h1>
-            <p style="color: #95a2a4;">This is a test paragraph</p>
+            <h1 style="text-align: center;color: #f17706;font-size: 19px;">What I've Done</h1>
+            <div class="container">
+                <h1 style="font-size: 20px;color: rgba(255,214,0,0.66);font-family: 'Source Sans Pro', sans-serif;text-align: center;">Programming</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p style="color: #95a2a4;">I've been programming, coding, scripting, whatever you want to call it for coming up on 12 years now. I started when I was around 10 years old when I was first introduced to the Ev3 programming "language" until I moved to Java and C# during high school. I messed around with a few different languages: Python, Swift, JavaScript, Ruby, R, and a few others, but it wasn't until my freshman year of college where I really got into using C.<br><br>I knew that I wanted to go into aerospace programming since about junior year of high school, and once I learned that almost all low-level / high-speed computing is done in C I sat down and started some hands-on projects.<br><br>Before that however, I was still mainly focusing on Java throughout high school and made some applications that to this day I'm pretty proud of. First up, Project: Genesis...<br><br>Project: Genesis<br>During my first couple of years in FRC, scouting the competition was a large part of team strategy. Knowing what and when your opponents did something was vital to how we played the game. With me being a part of a small team, people got very worn out when having to sit and watch the same robots compete for 10 hours each day, and even with that we would still miss some important information which later made it very difficult to extract a strategy from. This is why I knew we needed a way to automate the process; the only problem was that there was no easily obtainable data on how each robot performed, only data about the entire match itself (which is made-up of 6 robots--3 on each team). At the time, I was reading a textbook on Deep Neural Networks, and it gave me an idea.. Although the cloud data from the field only contained data on all of the robot's collaborative effort and not the individual robots themselves, there is still some information that can be abstracted from looking at the trends of each teams matches. This idea was the foundation of the Genesis project which later became a cloud-based application that could be texted to get real-time data on any robot in the world, not just at the local competition. This gave us the edge that we needed as we had the collective intelligence gained from every match a robot has ever played in at the tip of our fingers. This creation also helped me earn the FIRST Dean's List award which is awarded to only two students from each competition (about 1/1000) and sent me and my team to Huston for the world championships.<br><br>Performance Car Lighting<br>PCL, or "Performance Car Lighting" was my "side-project" during the quarantine of spring of 2020. My parents had me start saving all of the money I earned from working since I was 10 so that once I could drive I would be able to purchase a car, and that I did. My first car was a 2015 Subaru Impreza with a manual transmission. Although not the most sporty car, I knew that with a little automation I could add features that no one else had in their car, so I started working. I started by looking into the OBDII (On-Board Diagnostics) unit which is responsible for communication error codes and engine stats to mechanics working on the car. I found out that with the right communication protocol, you can get everything from air-intake temperatures, to air-intake manifold pressure, to oil temperatures, to (most excitingly) engine RPMs. I worked extensively to setup a communication protocol between a Raspberry Pi and a ELM32 OBDII diagnostics unit so that they could wirelessly communicate. After a LOT of trial and error, I finally got a prototype working that could read the RPMs from the engine and display the value in a remote terminal session. This was great, but I wanted more. With help from my dad, we took out all of the plastics and seating in my car and ran wires through the whole thing that connected 9 RGB LED strips to a central control unit installed out of sight. With the whole thing wired and the car put back together, I now have a fully functioning set of under-glow LEDs that reacts to the RPMs of my engine in real-time. This made late-night drives in a manual transmission much more enjoyable as I could see the faint glow fade colors as I down-shifted on my drive home.<br><br>LUX Longboard Automation<br>Freshman year of college I had way too much time on my hands, so I needed a project to keep me busy. I had an electric longboard that I used to get around campus, but sometimes at night it was a little hard for other people to see, so I figured it would be a great idea to put some under-glow on it! Taking some inspiration from my car project, I got to work, although this time I didn't have much room, so using a Raspberry Pi was out of the question. Luckily for me, Atmel makes some AtTiny85 microcontrollers that would be perfect for this project. I ordered a few off of DigiKey and got straight to work. I didn't want just regular lighting, no, I needed to be "special" so I ordered an accelerometer from Amazon and used the left and right leaning (used to steer a longboard) to make the two RGB LED strips react to my riding. It was a pretty long process as it was also my first time soldering onto a prototype board instead of just using a breadboard but eventually I got it done and now had the most reactive lighting on campus. No problems seeing at night again!</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">GitHub Home Page</h1>
+                            <p style="color: #95a2a4;">Here's my GitHub home page where I host most of my projects.</p><a href="https://github.com/Diamond42474">GitHub Repositories</a>
+                        </div>
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">Project: Genesis</h1>
+                            <p style="color: #95a2a4;">A Deep-Neural-Network used to predict the performance of robots in FIRST's FRC</p><a href="https://github.com/Coconuts2486-FRC/TBA-2019">Project: Genesis</a>
+                        </div>
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">Performance Car Lighting</h1>
+                            <p style="color: #95a2a4;">Performance Car Lighting was a side-project that lead to a real-time reactive-lighting system that would give a driver feedback on multiple engine points of data (but the RPMs were the most fun)</p><a href="https://github.com/Diamond42474/RCL">Performance Car Lighting</a>
+                        </div>
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">LUX Longboard Automation</h1>
+                            <p style="color: #95a2a4;">Using the ATTiny85 microcontroller from Atmel, I programmed an electric longboard to use an accelerometer to dynamically adjust under-glow RGB LED strips.</p><a href="https://github.com/Diamond42474/LUX-Longboard-Automation">LUX Longboard Automation</a>
+                        </div>
+                        <div>
+                            <h1 style="text-align: center;font-size: 30px;color: #3a434b;">FRC Robotics Code</h1>
+                            <p style="color: #95a2a4;">FRC 2020 is the robot code that is flashed onto the RoboRIO for the FRC competition. The robot needed the capabilities of accurate and high-speed turret maneuverability independant of the drive shaft, reliable cargo-loading with auto anti-jamming redundencies, and high-speed manuverability for on-ground performance.</p><a href="https://github.com/Coconuts2486-FRC/FRC2020">FRC 2020 GitHub Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <section>
-            <h1 style="text-align: center;color: #ffd600;font-size: 19px;">Where I Want to Go</h1>
+            <h1 style="text-align: center;color: #f17706;font-size: 19px;">Where I Want to Go</h1>
             <p style="color: #95a2a4;">This is a test paragraph</p>
         </section>
     </div>
