@@ -17,17 +17,41 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Beau+Rivage&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Blaka+Hollow&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee+Inline&amp;display=swap">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
 </head>
 
 <body style="background: var(--bs-emphasis-color);">
+    <nav class="navbar navbar-expand navbar-light" id="sidebar-wrapper" style="background: rgba(0,11,40,0.69);--bs-primary: #9f6b1d;--bs-primary-rgb: 159,107,29;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none" data-bs-target="#"></button>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav sidebar-nav" id="sidebar-nav">
+                    <li class="nav-item sidebar-brand"><a class="nav-link active js-scroll-trigger" href="index.html#page-top">Logan Miller</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="index.html#page-top">Home</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="about.html">About</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="index.html#portfolio">Projects</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="resume.html">Resume</a></li>
+                    <li class="nav-item sidebar-nav-item"><a class="nav-link js-scroll-trigger" href="project-peregrine.html">Project: Peregrine</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav><a class="menu-toggle rounded" href="#"><i class="fa fa-bars"></i></a>
     <header>
         <div class="container" style="position: relative;"><img src="../assets/img/image.png" style="width: 100%;">
             <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%);backdrop-filter: opacity(0) blur(3px) brightness(99%) saturate(0%);opacity: 1;">
                 <h1 style="color: #95a2a4;backdrop-filter: blur(0px) brightness(0%);box-shadow: 0px 0px 50px 50px rgba(0,0,0,0.66);background: rgba(0,0,0,0.73);text-align: center;">Project : Peregrine</h1>
             </div>
         </div>
-        <h1 style="text-align: center;">Webpage in the works! ...</h1>
     </header>
+    <section id="introduction" style="background: rgba(39,38,46,0);">
+        <h1 style="text-align: center;">Abstract</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="text-align: center;color: var(--bs-body-bg);">Project Peregrine is an autonomous fixed-wing Unmanned Aerial Vehicle (UAV) that employs thrust vector control to achieve exceptional maneuverability within confined airspace, while harnessing the advantages inherent to fixed-wing aircraft. In the realm of modern military surveillance drones, a prevailing distinction exists between two predominant categories. The first category comprises slow, quadcopter-style devices noted for their agility in tight spaces but often characterized by their conspicuous noise output. The second category encompasses large, runway-dependent aircraft that necessitate specialized launching mechanisms and sensitive camera equipment to compensate for their operational distance from the target, essential for maintaining stealth.<br>To bridge the gap between these two distinct UAV types, Peregrine introduces a three-stage flight strategy. In the first stage, thrust vectoring technology, commonly employed in rocketry for vertical stabilization during takeoff at low speeds, facilitates runway-independent ascent, allowing the UAV to attain velocity and altitude. Stage two initiates once the UAV has achieved the desired altitude within the geographic range of its surveillance objective. During this phase, the UAV executes a controlled nosedive, reaching terminal velocity and closing the gap with the target area. Stage three seamlessly follows stage two, where the UAV disengages its propulsion, achieving complete silence. In this phase, the UAV relies on its wings to glide at low altitude over the target area, leaving no acoustic footprint.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/bs-init.js"></script>
     <script src="../assets/js/stylish-portfolio.js"></script>
