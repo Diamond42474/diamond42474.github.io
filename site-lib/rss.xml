@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Diamond42474]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>site-lib/media/favicon.png</url><title>Diamond42474</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Thu, 20 Aug 2026 03:58:12 GMT</lastBuildDate><atom:link href="site-lib/rss.xml" rel="self" type="application/rss+xml"/><pubDate>Thu, 20 Aug 2026 03:57:33 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[index]]></title><description><![CDATA[Links:
+<a data-tooltip-position="top" aria-label="https://github.com/Diamond42474" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474" target="_self">GitHub</a>
+<br><a data-tooltip-position="top" aria-label="https://www.linkedin.com/in/loganrmiller/" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.linkedin.com/in/loganrmiller/" target="_self">LinkedIn</a>
+<br>I like the outdoors, exploring, software development, radio communication systems, and some video games from time-to-time. My current project is a device that connects to any analog radio and turns it into a mesh network for off-grid communication. See (<a data-href="peregrine-constellation" href="projects/peregrine-constellation/peregrine-constellation.html" class="internal-link" target="_self" rel="noopener nofollow">peregrine-constellation</a>)<br><a data-tooltip-position="top" aria-label="peregrine-constellation" data-href="peregrine-constellation" href="projects/peregrine-constellation/peregrine-constellation.html" class="internal-link" target="_self" rel="noopener nofollow">Peregrine Constellation</a>: MANET for legacy radios<br>
+<a data-tooltip-position="top" aria-label="project-peregrine" data-href="project-peregrine" href="projects/project-peregrine/project-peregrine.html" class="internal-link" target="_self" rel="noopener nofollow">Project Peregrine</a>: Autonomous drone for stealth operationsBlog2026-08-16I thought it would be kinda fun to do a little blog thing. Something short and simple to just go over updates on this project and what not. Not sure if this will keep happening or if it will only be once in a blue moon, but here we go.Working on the project today, I realized that I needed to take a step back and do some ground work. I have the basic signal decoding working pretty well at 200 symbols/sec which is great, but it's no where near where I want to be. Every time I try to bring it up through I get SERIOUS decoding issues. It basically all just turns to noise.<br>
+One of the features that I was planning on implementing was compounding energy for symbol decision making <a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/peregrine-constellation/issues/87" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation/issues/87" target="_self">#87</a>. Meaning that instead of just measuring a single sample in the middle of each symbol to determine its value, I would add up the energy over the entire symbol size and then make the decision. This should make it far less sensitive to noise and should therefore allow me to run at higher baud rates. When I implemented a very crude version of this I got all of my unit tests passing just fine and decided to amp it up a little bit. To my surprise, basically nothing had changed. There was actually some more incorrect readings. I tried messing with the filtering parameters to see if I could get it to at least decode something, and I did get it to register the preamble/sync-word, so that was good. However, that was about as far as I got. After attempting to make little adjustments for a while with seemingly random results I made the decision that I really need to take a step back and build a more systematic approach.Now, everyone likes just diving straight on in to the solution because it's fun building the core thing itself, but in order to build something strong you need to first do the ground work. In my case, that's building a recording system so that I can analyze the actual signals going through the FSK decoder in order to understand how the parameters affect the signal. On the peregrine-constellation side, it was actually pretty simple and eve on the pico-constellation it was. All I did was expose a debugging function that would be called by the fsk_decoder if a certain compile flag was enabled and then the pico-constellation project could handle sending that over USB. A little bit of ChatGPT and we had a simple script up and working that send raw data to a host computer.
+I still need to implement the host software, but at least I got a little something done that will help me better understand the system in the long run.
+That's all for my first post. You can check out the related links below:
+<br><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation/pull/90" target="_self">https://github.com/Diamond42474/peregrine-constellation/pull/90</a>
+<br><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/pico-constellation/commit/b4156fb7d9491af0197fdd3c55f1510b3cdf3b54" target="_self">https://github.com/Diamond42474/pico-constellation/commit/b4156fb7d9491af0197fdd3c55f1510b3cdf3b54</a>
+]]></description><link>index.html</link><guid isPermaLink="false">index.md</guid><pubDate>Mon, 17 Aug 2026 02:45:37 GMT</pubDate></item><item><title><![CDATA[Blog]]></title><description><![CDATA[2026-08-16I thought it would be kinda fun to do a little blog thing. Something short and simple to just go over updates on this project and what not. Not sure if this will keep happening or if it will only be once in a blue moon, but here we go.Working on the project today, I realized that I needed to take a step back and do some ground work. I have the basic signal decoding working pretty well at 200 symbols/sec which is great, but it's no where near where I want to be. Every time I try to bring it up through I get SERIOUS decoding issues. It basically all just turns to noise.
+One of the features that I was planning on implementing was compounding energy for symbol decision making <a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/peregrine-constellation/issues/87" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation/issues/87" target="_self">#87</a>. Meaning that instead of just measuring a single sample in the middle of each symbol to determine its value, I would add up the energy over the entire symbol size and then make the decision. This should make it far less sensitive to noise and should therefore allow me to run at higher baud rates. When I implemented a very crude version of this I got all of my unit tests passing just fine and decided to amp it up a little bit. To my surprise, basically nothing had changed. There was actually some more incorrect readings. I tried messing with the filtering parameters to see if I could get it to at least decode something, and I did get it to register the preamble/sync-word, so that was good. However, that was about as far as I got. After attempting to make little adjustments for a while with seemingly random results I made the decision that I really need to take a step back and build a more systematic approach.Now, everyone likes just diving straight on in to the solution because it's fun building the core thing itself, but in order to build something strong you need to first do the ground work. In my case, that's building a recording system so that I can analyze the actual signals going through the FSK decoder in order to understand how the parameters affect the signal. On the peregrine-constellation side, it was actually pretty simple and eve on the pico-constellation it was. All I did was expose a debugging function that would be called by the fsk_decoder if a certain compile flag was enabled and then the pico-constellation project could handle sending that over USB. A little bit of ChatGPT and we had a simple script up and working that send raw data to a host computer.
+I still need to implement the host software, but at least I got a little something done that will help me better understand the system in the long run.
+That's all for my first post. You can check out the related links below:
+<br><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation/pull/90" target="_self">https://github.com/Diamond42474/peregrine-constellation/pull/90</a>
+<br><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/pico-constellation/commit/b4156fb7d9491af0197fdd3c55f1510b3cdf3b54" target="_self">https://github.com/Diamond42474/pico-constellation/commit/b4156fb7d9491af0197fdd3c55f1510b3cdf3b54</a>
+]]></description><link>blog.html</link><guid isPermaLink="false">Blog.md</guid><pubDate>Mon, 17 Aug 2026 02:45:26 GMT</pubDate></item><item><title><![CDATA[peregrine-constellation]]></title><description><![CDATA[
+GitHub <a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/peregrine-constellation" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation" target="_self">Peregrine Constellation</a>
+<br><a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/pico-constellation" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/pico-constellation" target="_self">Pico Constellation</a> TLDR; basically APRS but every node is a repeater.<br>
+NTLDR; Peregrine Constellation is a custom <a data-tooltip-position="top" aria-label="https://en.wikipedia.org/wiki/Wireless_ad_hoc_network" rel="noopener nofollow" class="external-link is-unresolved" href="https://en.wikipedia.org/wiki/Wireless_ad_hoc_network" target="_self">MANET</a> protocol built to run over narrowband audio frequencies. This allows the device to be plugged into virtually any radio and turn it into a network node. Instead of needing a special radio (typically expensive), you just plug this thing into your 20-year-old hand-held and you're up and running. Plug another unit into your mobile station and now you have a functioning network. <br><a data-href="2026-08-16" href="projects/peregrine-constellation/blog/2026-08-16.html" class="internal-link" target="_self" rel="noopener nofollow">2026-08-16</a>
+<br><a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/peregrine-constellation" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation" target="_self">Peregrine Constellation</a>
+is the core network stack. Containing all network functionality above the hardware layer. With a simple BSP layer that's implemented by the end device, PC becomes completely hardware agnostic, making development simple and cross-platform compatible. It also is just really clean and easily lets us run unit tests and other things.<br><a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/pico-constellation" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/pico-constellation" target="_self">Pico Constellation</a>
+as you might have already guessed, Pico Constellation contains the application logic along with the hardware layer. This code compiles specifically for the Pico2W. Using the wireless interface on the pico, we can host a webpage that allows an end user to interact with the network through their mobile device. The cool thing about this device (Pico Constellation) is that all that it needs from a radio is audio output, input, and push-to-talk control. This makes it "compatible" with basically every amateur radio on the market. <br><img alt="Pasted image 20260725230935.png" src="projects/peregrine-constellation/attachments/pasted-image-20260725230935.png" target="_self">
+Now.. I don't claim to be an electrical engineer. In fact, I've been learning KiCad by doing this project. I'm sure I'm doing a million things wrong and violating all sorts of rules but it works for prototyping and that's all I need for now. One of the main goals with this project was to first make it Open Source, and secondly to not make it reliant on any one chip or manufacturer.<br>
+In earlier designs I used a DAC and then switched to a <a data-tooltip-position="top" aria-label="https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf" target="_self">signal generator</a>. After learning more about signal filtering I realized I could just PWM this thing with a low-pass filter and call it a day. This makes it so a minimally viable node can be made with nothing more than a microcontroller, a couple of resistors, capacitors, and a single transistor.TLDR; you do whatever works for you, but here's why I've been building this:
+I simply thought building a communications protocol is cool
+Legacy Infrastructure. Amateur radio has been around for quite a while with repeaters available basically anywhere in the US and in Europe. Unfortunately, most of these repeaters are only built for voice. PC however operates over voice channels which means it can use legacy infrastructure as the backbone without having to change anything.
+It's cheap. APRS-capable radios are like $60 on the low end, and if you're looking at APRS radios, you probably already have a normal one. This circuit is like $10 of components (at prototype quantities) and boom you have something you can send texts with.
+Hardware agnostic. I'm just starting to try out Meshtastic, but I'm not totally onboard with the idea that EVERY node is running the same radio chip from a SINGLE manufacturer. Open-Source. APRS is neat and all over, but it's basically stale as far as development goes. I wanted something with the ability to adapt and meet user's needs like Meshtastic's eco system, but fully open-source (Meshtastic users have no control over the PHY layer). ]]></description><link>projects/peregrine-constellation/peregrine-constellation.html</link><guid isPermaLink="false">projects/Peregrine Constellation/peregrine-constellation.md</guid><pubDate>Mon, 17 Aug 2026 02:44:35 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2026-08-16]]></title><description><![CDATA[I thought it would be kinda fun to do a little blog thing. Something short and simple to just go over updates on this project and what not. Not sure if this will keep happening or if it will only be once in a blue moon, but here we go.Working on the project today, I realized that I needed to take a step back and do some ground work. I have the basic signal decoding working pretty well at 200 symbols/sec which is great, but it's no where near where I want to be. Every time I try to bring it up through I get SERIOUS decoding issues. It basically all just turns to noise.
+One of the features that I was planning on implementing was compounding energy for symbol decision making <a data-tooltip-position="top" aria-label="https://github.com/Diamond42474/peregrine-constellation/issues/87" rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation/issues/87" target="_self">#87</a>. Meaning that instead of just measuring a single sample in the middle of each symbol to determine its value, I would add up the energy over the entire symbol size and then make the decision. This should make it far less sensitive to noise and should therefore allow me to run at higher baud rates. When I implemented a very crude version of this I got all of my unit tests passing just fine and decided to amp it up a little bit. To my surprise, basically nothing had changed. There was actually some more incorrect readings. I tried messing with the filtering parameters to see if I could get it to at least decode something, and I did get it to register the preamble/sync-word, so that was good. However, that was about as far as I got. After attempting to make little adjustments for a while with seemingly random results I made the decision that I really need to take a step back and build a more systematic approach.Now, everyone likes just diving straight on in to the solution because it's fun building the core thing itself, but in order to build something strong you need to first do the ground work. In my case, that's building a recording system so that I can analyze the actual signals going through the FSK decoder in order to understand how the parameters affect the signal. On the peregrine-constellation side, it was actually pretty simple and eve on the pico-constellation it was. All I did was expose a debugging function that would be called by the fsk_decoder if a certain compile flag was enabled and then the pico-constellation project could handle sending that over USB. A little bit of ChatGPT and we had a simple script up and working that send raw data to a host computer.
+I still need to implement the host software, but at least I got a little something done that will help me better understand the system in the long run.
+That's all for my first post. You can check out the related links below:
+<br><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/peregrine-constellation/pull/90" target="_self">https://github.com/Diamond42474/peregrine-constellation/pull/90</a>
+<br><a rel="noopener nofollow" class="external-link is-unresolved" href="https://github.com/Diamond42474/pico-constellation/commit/b4156fb7d9491af0197fdd3c55f1510b3cdf3b54" target="_self">https://github.com/Diamond42474/pico-constellation/commit/b4156fb7d9491af0197fdd3c55f1510b3cdf3b54</a>
+]]></description><link>projects/peregrine-constellation/blog/2026-08-16.html</link><guid isPermaLink="false">projects/Peregrine Constellation/blog/2026-08-16.md</guid><pubDate>Mon, 17 Aug 2026 02:43:19 GMT</pubDate></item><item><title><![CDATA[project-peregrine]]></title><description><![CDATA[Project Peregrine is an autonomous fixed-wing Unmanned Aerial Vehicle (UAV) that employs thrust vector control to achieve exceptional maneuverability within confined airspace, while harnessing the advantages inherent to fixed-wing aircraft. In the realm of modern military surveillance drones, a prevailing distinction exists between two predominant categories. The first category comprises slow, quadcopter-style devices noted for their agility in tight spaces but often characterized by their conspicuous noise output. The second category encompasses large, runway-dependent aircraft that necessitate specialized launching mechanisms and sensitive camera equipment to compensate for their operational distance from the target, essential for maintaining stealth.To bridge the gap between these two distinct UAV types, Peregrine introduces a three-stage flight strategy. In the first stage, thrust vectoring technology, commonly employed in rocketry for vertical stabilization during takeoff at low speeds, facilitates runway-independent ascent, allowing the UAV to attain velocity and altitude. Stage two initiates once the UAV has achieved the desired altitude within the geographic range of its surveillance objective. During this phase, the UAV executes a controlled nosedive, reaching terminal velocity and closing the gap with the target area. Stage three seamlessly follows stage two, where the UAV disengages its propulsion, achieving complete silence. In this phase, the UAV relies on its wings to glide at low altitude over the target area, leaving no acoustic footprint. Master Map<a data-href="Hardware" href="projects/project-peregrine/hardware.html" class="internal-link" target="_self" rel="noopener nofollow">Hardware</a>
+re-inserting images here soonFlux.ai was used to generate the PCB (Printed Circuit Board) design as it allowed for a easy cloud-based solution for electrical design.
+Raspberry Pi Pico W ARM M0+ Dual Core Microcontroller MPU6050 6-axis Accelerometer / Gyroscope BMP280 Barometric Pressure Sensor HMC5883L 3-axis Magnetometer SSD1306 OLED Display various power regulation components
+<br><a data-href="AACS" href="projects/project-peregrine/aacs.html" class="internal-link" target="_self" rel="noopener nofollow">AACS</a><br>
+<a data-href="C2 Server" href="projects/project-peregrine/c2/c2-server.html" class="internal-link" target="_self" rel="noopener nofollow">C2 Server</a>This shows how the low-level flight system is connected to the web application that can be used to control the aircraft. Software Architecture]]></description><link>projects/project-peregrine/project-peregrine.html</link><guid isPermaLink="false">projects/project-peregrine/project-peregrine.md</guid><pubDate>Sun, 26 Jul 2026 06:46:03 GMT</pubDate></item><item><title><![CDATA[Pasted image 20260725230935]]></title><description><![CDATA[<img src="projects/peregrine-constellation/attachments/pasted-image-20260725230935.png" target="_self">]]></description><link>projects/peregrine-constellation/attachments/pasted-image-20260725230935.html</link><guid isPermaLink="false">projects/Peregrine Constellation/attachments/Pasted image 20260725230935.png</guid><pubDate>Sun, 26 Jul 2026 06:09:35 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Software Architecture]]></title><description><![CDATA[Wireless ConnectionUAV FirmwareC2 WebMission CoreC2 ProxyAbstracted Device InterfacesControl InterfacesMission ModulesComponents“projects/project-peregrine/Mission Control 1.canvas” could not be found.Swap file...Removeprojects/project-peregrine/Mission Control 1.canvasFreeRTOSActuator Control Interface.canvasARM-M0+Message Manager.canvasLanding Mission ModuleLoiter Mission ModuleTakeoff Mission ModuleAT24C02 DriverSSD1306 DriverServo DriverIdle Mission ModuleESC DriverBMP280 DriverHMC5883L DriverSensor Control Interface.canvasMPU6050 DriverStorage Manager.canvasCommand HandlerMission PlannerControl PanelC2 User Interface Design.canvas]]></description><link>projects/project-peregrine/website/software-architecture.html</link><guid isPermaLink="false">projects/project-peregrine/Website/Software Architecture.canvas</guid><pubDate>Sat, 18 Jul 2026 17:17:28 GMT</pubDate></item><item><title><![CDATA[Software Architecture]]></title><description><![CDATA[Wireless ConnectionUAV FirmwareC2 WebMission CoreC2 ProxyAbstracted Device InterfacesControl InterfacesMission ModulesComponentsMission Control.canvasIdle Mission ModuleFreeRTOSActuator Control Interface.canvasARM-M0+Landing Mission ModuleBMP280 DriverHMC5883L DriverSensor Control Interface.canvasMPU6050 DriverStorage Manager.canvasMessage Manager.canvasLoiter Mission ModuleTakeoff Mission ModuleAT24C02 DriverSSD1306 DriverServo DriverESC DriverCommand HandlerMission PlannerControl PanelC2 User Interface Design.canvas]]></description><link>projects/project-peregrine/software-architecture.html</link><guid isPermaLink="false">projects/project-peregrine/Software Architecture.canvas</guid><pubDate>Sat, 18 Jul 2026 17:17:20 GMT</pubDate></item><item><title><![CDATA[Storage Manager]]></title><description><![CDATA[Drag from below or double clickSpace + Drag to panCtrl + Scroll to zoom]]></description><link>projects/project-peregrine/storage-manager.html</link><guid isPermaLink="false">projects/project-peregrine/Storage Manager.canvas</guid><pubDate>Sat, 18 Jul 2026 17:13:22 GMT</pubDate></item><item><title><![CDATA[Master Map]]></title><description><![CDATA[Wireless ConnectionI2CI2CI2CFirmware ModulesSoftwareEDFsServosMotor ControllersSensorsPower SourcesC2 User Interface Design.canvasSensor Control Interface.canvasActuator Control Interface.canvasMission Control.canvas
+Flight Data Flight stage
+Full system health status Operational
+Minor error
+Fatal error Network Status View Network Connection Status Connected
+Not Connected View time since last network packet was received Example 20ms Peripheral Data Note: Health status will be broken down into: Operational
+Disconnected
+Faulty View Accelorometer Data Health status
+Activation state
+x,y,z View Gyroscope Data Health status
+Activation state
+x,y,z View Barometric Pressure Data Health status
+Activation state
+altitude View Magnetometer Data Health status
+Activation state
+heading View Ultrasonic Sensor Data Health status
+Activation state
+distance in mm Actuator Data View Motor data x4 Health status
+Power percentage View servo data x4 Health status
+Angle System Data System needs to be capable of uniquely identifying connection
+System needs to be capable of verifying firmware version This contains information pertaining to what data is actually transmitted and received to and from the UAV over the wireless connection.Estimated Total Unique Messages: 46
+debug
+info
+error
+fatal
+managed by <a data-href="AACS#Sensor Control Interface" href="projects/project-peregrine/aacs.html#Sensor_Control_Interface_0" class="internal-link" target="_self" rel="noopener nofollow">AACS &gt; Sensor Control Interface</a>
+accelorometer: x
+y
+z
+status : operational, faulty, disconnected
+activation state: activated, deactivated gyroscope: x
+y
+z
+status : operational, faulty, disconnected
+activation state: activated, deactivated altimeter altitude
+status : operational, faulty, disconnected
+activation state: activated, deactivated magnetometer heading
+status : operational, faulty, disconnected
+activation state: activated, deactivated ultrasonic distance
+status : operational, faulty, disconnected
+activation state: activated, deactivated <br>managed by <a data-href="AACS#Actuator Control Interface" href="projects/project-peregrine/aacs.html#Actuator_Control_Interface_0" class="internal-link" target="_self" rel="noopener nofollow">AACS &gt; Actuator Control Interface</a>
+motor 1 status : operational, faulty, disconnected
+power percent motor 2 status : operational, faulty, disconnected
+power percent motor 3 status : operational, faulty, disconnected
+power percent motor 4 status : operational, faulty, disconnected
+power percent servo 1 status : operational, faulty, disconnected
+angle servo 2 status : operational, faulty, disconnected
+angle servo 3 status : operational, faulty, disconnected
+angle servo 4 status : operational, faulty, disconnected
+angle <br>managed by <a data-href="AACS#Master Control Interface" href="projects/project-peregrine/aacs.html#Master_Control_Interface_0" class="internal-link" target="_self" rel="noopener nofollow">AACS &gt; Master Control Interface</a>
+flight stage
+overall system health
+ready to enter launch stage
+ready to enter target acquisition stage ready to enter stealth surveillance stage
+ready to enter vehicle extraction stage
+ready to enter landing stage C2 User Interface Design C2 System ArchitectureC2 ServerC2 System Architecture.canvasMPU6050Aileron RTVC XTVC YAileron LBMP280HMC5883LSSD1306EEPROMProcessor : RP2040 (Raspberry Pi Pico W)
+OS : FreeRTOS Sensor Control InterfaceThere are going to be a set of static variables that contain all of the sensor data. These variables are going to be protected using mutexes since they will be continuously updated via the internal sensor reading task and continuously read through the various "public" methods. I need to do some research on what formats would be good for using the numbers in (i.e. should accelerator data be a double between 1 and -1 or is it better represented as an unsigned or signed int?)<br>Documentation for what all the C2 server needs can be found <a data-tooltip-position="top" aria-label="C2 Server > *peripheral*" data-href="C2 Server#*peripheral*" href="projects/project-peregrine/c2/c2-server.html#*peripheral*_0" class="internal-link" target="_self" rel="noopener nofollow">here</a>Display Mermaid diagrams in this vault?Only allow if you trust this vault's contents.AllowclassDiagram class sensor_control_interface{ - double accelorometer_x; - double accelorometer_y; - double accelorometer_z; - double gyroscope_x; - double gyroscop_y; - double gyroscop_z; - double altitude; - double heading; - double us_distance; - SemaphoreHandle_t mpu_mutex; - SemaphoreHandle_t bmp_mutex; - SemaphoreHandle_t qmc_mutex; - SemaphoreHandle_t hcsr_mutex; - int sensor_error_count; + sensor_control_interface_init(UBaseType_t sensor_task_priority): int + sensor_control_interface_get_accelorometer_x(): double + sensor_control_interface_get_accelorometer_y(): double + sensor_control_interface_get_accelorometer_z(): double + sensor_control_interface_set_accelorometer_x(double _x): void + sensor_control_interface_set_accelorometer_y(double _x): void + sensor_control_interface_set_accelorometer_z(double _z): void + sensor_control_interface_accelerometer_activate(): int + sensor_control_interface_accelerometer_deactivate(): int + sensor_control_interface_get_gyroscope_x(): double + sensor_control_interface_get_gyroscope_y(): double + sensor_control_interface_get_gyroscope_z(): double + sensor_control_interface_set_gyroscope_x(double _x): void + sensor_control_interface_set_gyroscope_y(double _x): void + sensor_control_interface_set_gyroscope_z(double _z): void + sensor_control_interface_gyroscope_activate(): int + sensor_control_interface_gyroscope_deactivate(): int + sensor_control_interface_get_altimeter_altitude(): double + sensor_control_interface_set_altimeter_altitude(double _altitude): int + sensor_control_interface_altimeter_activate(): int + sensor_control_interface_altimeter_deactivate(): int + sensor_control_interface_get_compass_heading(): double + sensor_control_interface_set_compass_heading(double _heading): int + sensor_control_interface_compass_activate(): int + sensor_control_interface_compass_deactivate(): int + sensor_control_interface_get_ultrasonic_distance(): double + sensor_control_interface_set_ultrasonic_distance(double _distance): int + sensor_control_interface_ultrasonic_activate(): int + sensor_control_interface_ultrasonic_deactivate(): int + sensor_control_interface_reset_mpu_6050(): int + sensor_control_interface_reset_bmp_280(): int + sensor_control_interface_reset_qmc _5883l(): int + sensor_control_interface_reset_hc_sr04(): int + sensor_control_interface_task(): int }sensor_control_interface_initGetters:
+sensor_control_interface_get_accelerometer_x
+sensor_control_interface_get_accelerometer_y
+sensor_control_interface_get_accelerometer_z
+Setters:
+sensor_control_interface_set_accelerometer_x
+sensor_control_interface_set_accelerometer_y
+sensor_control_interface_set_accelerometer_z
+Activators:
+sensor_control_interface_accelerometer_activate
+sensor_control_interface_accelerometer_deactivateGetters:
+sensor_control_interface_get_gyroscope_x
+sensor_control_interface_get_gyroscope_y
+sensor_control_interface_get_gyroscope_z
+Setters:
+sensor_control_interface_set_gyroscope_x
+sensor_control_interface_set_gyroscope_y
+sensor_control_interface_set_gyroscope_z
+Activators:
+sensor_control_interface_gyroscope_activate
+sensor_control_interface_gyroscope_deactivateGetters:
+sensor_control_interface_get_altimeter_altitude
+Setters:
+sensor_control_interface_set_altimeter_altitude
+Activators:
+sensor_control_interface_altimeter_activate
+sensor_control_interface_altimeter_deactivateGetters:
+sensor_control_interface_get_compass_heading
+Setters:
+sensor_control_interface_set_compass_heading
+Activators:
+sensor_control_interface_compass_activate
+sensor_control_interface_compass_deactivateGetters:
+sensor_control_interface_get_ultrasonic_distance
+Setters:
+sensor_control_interface_set_ultrasonic_distance
+Activators:
+sensor_control_interface_ultrasonic_activate
+sensor_control_interface_ultrasonic_deactivatesensor_control_interface_tasksensor_control_interface_reset_mpu_6050
+sensor_control_interface_reset_bmp_280
+sensor_control_interface_reset_qmc _5883l
+sensor_control_interface_reset_hc_sr04 Actuator Control Interfaceint calculatePowerChange(int currentPower, int targetPower, int rateOfChange) { // Ensure rateOfChange is within the valid range (1-100) rateOfChange = max(1, min(100, rateOfChange)); // Calculate the remaining difference between currentPower and targetPower int remainingDifference = targetPower - currentPower; // Calculate the adder/subtractor for the given rate of change int change = (remainingDifference * rateOfChange) / 100; // Ensure a minimum change to prevent very slow transitions change = max(change, MIN_CHANGE); // Adjust MIN_CHANGE as needed return change;
+} <br>Documentation for what all the C2 server needs can be found <a data-tooltip-position="top" aria-label="C2 Server > *actuator*" data-href="C2 Server#*actuator*" href="projects/project-peregrine/c2/c2-server.html#*actuator*_0" class="internal-link" target="_self" rel="noopener nofollow">here</a>The master_control_interface is responsible for high level control over the UAV.<br>Documentation for what all the C2 server needs can be found <a data-tooltip-position="top" aria-label="C2 Server > *flight data*" data-href="C2 Server#*flight data*" href="projects/project-peregrine/c2/c2-server.html#*flight_data*_0" class="internal-link" target="_self" rel="noopener nofollow">here</a>AACSEDF 1EDF 2EDF 3EDF 437v7.4v3.3v linear regulatorESCESCESCESC]]></description><link>projects/project-peregrine/master-map.html</link><guid isPermaLink="false">projects/project-peregrine/Master Map.canvas</guid><pubDate>Sat, 18 Jul 2026 17:04:20 GMT</pubDate></item><item><title><![CDATA[C2 System Architecture]]></title><description><![CDATA[C2 ProxyC2 Web InterfaceNeeded
+Starts a new thread for each connection
+Every connection is treated like the same device This is to handle situations where the UAV disconnects and reconnects
+There should only ever be one UAV Command Callback function
+Send Command function
+One static socket This is overridden when a new connection is received This way the application is always working with the current connection Methods
+socket_handler_init(receive_message_callback_function) Starts up a new thread socket_handler_send(String)
+Variables
+static : socket
+“Project Peregrine/C2/C2 User Interface Design.canvas” could not be found.Swap file...RemoveProject Peregrine/C2/C2 User Interface Design.canvasControl PanelMission Planner]]></description><link>projects/project-peregrine/c2/c2-system-architecture.html</link><guid isPermaLink="false">projects/project-peregrine/C2/C2 System Architecture.canvas</guid><pubDate>Mon, 25 Mar 2024 00:57:08 GMT</pubDate></item><item><title><![CDATA[Message Manager]]></title><description><![CDATA[Drag from below or double clickSpace + Drag to panCtrl + Scroll to zoom]]></description><link>projects/project-peregrine/message-manager.html</link><guid isPermaLink="false">projects/project-peregrine/Message Manager.canvas</guid><pubDate>Mon, 25 Mar 2024 00:45:28 GMT</pubDate></item><item><title><![CDATA[Sensor Control Interface]]></title><description><![CDATA[Acc / GyroCompassAltitudeUltrasonicI2C Bus InitializationInitializeAccelorometer Get XGyroscope Get ZGyroscope Get XAccelorometer Get YAccelorometer Get ZGyroscope Get YSet AltitudeGet AltitudeAltitude ActivateAltitude DeactivateGet Heading (in degrees)Get Distance (in mm)Set Heading (in degrees)Compass ActivateMPU6050 (accel / gyro)Accelorometer Set XBMP280 (Pressure)Accelorometer Set ZGyroscope Set XQMC5883L (compass)HCSR04 (ultrasonic)Accelorometer Set YRead sensorRead sensorCompass Deactivateif(mpu is active)Read sensorif(bmp is active)Read sensorif(error) error_count++if(error) error_count++if(error) error_count++if(error) error_count++Accelorometer ActivateAccelorometer Deactivate#define MAX_ERROR_COUNTint error_count = 0Ultrasonic ActivateUltrasonic Deactivatesensor manager taskReboot Devicesif(qmc is active)if(hcsr is active)Gyroscope Set ZGyroscope Set YGyroscope DeactivateGyroscope Activatewhile(error_count &lt; MAX_ERROR_COUNT)while(true) // loop foreverNOTE
+The sensor manager task will make sure that the I2C bus is up and running and that all sensors are properly functioning.. It will then be used to constantly read from sensors (when told to)]]></description><link>projects/project-peregrine/sensor-control-interface.html</link><guid isPermaLink="false">projects/project-peregrine/Sensor Control Interface.canvas</guid><pubDate>Sat, 23 Mar 2024 22:17:13 GMT</pubDate></item><item><title><![CDATA[C2 User Interface Design]]></title><description><![CDATA[Accelerometer
+X: 0.5553765
+Y: 0.0127444
+Z: -0.568222Gyroscope
+X: 0.5553765
+Y: 0.0127444
+Z: -0.568222Barometric Pressure
+altitude: 233.7555 ftUltrasonic
+distance: 205.25552 mmMagnetometer
+heading: 45.557Flight Status:
+Stage: Startup
+System Health: OperationalPeripheral Status:
+Accelerometer: Operational
+Gyroscope: Operational
+Barometric Pressure: Operational
+Ultrasonic: Faulty
+Magnetometer: DisconnectedMotor Status:
+Motor 1: Operational
+Motor 2: Operational
+Motor 3: Operational
+Motor 4: OperationalServo Status:
+Servo X: Operational
+Servo Y: Operational
+Servo L: Disconnected
+Servo R: DisconnectedMotor 1 Power: 10%Motor 3 Power: 11%Motor 2 Power: 12%Motor 4 Power: 10%Servo X Angle: 90Servo Y Angle: 95Servo L Angle: N/AServo R Angle: N/Acommand injection:Logs:
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...
+...Accelerometer Graph (X, Y, Z)Altitude Graph]]></description><link>projects/project-peregrine/c2/c2-user-interface-design.html</link><guid isPermaLink="false">projects/project-peregrine/C2/C2 User Interface Design.canvas</guid><pubDate>Wed, 13 Mar 2024 18:16:21 GMT</pubDate></item><item><title><![CDATA[Mission Control]]></title><description><![CDATA[Core Switch LogicMission QueueAlways Ransend sensor data
+every 100 mssend actuator data
+every 100 mscreate vTaskmission_control_initiate(task_priority)_task(void *params)mission_control_handle_command(cJSON *json)Should be startup functionThings that need to always happen continuouslyUAV StateSTATE_IDLE
+STATE_MODULE_STARTUP
+STATE_MODULE_CORE
+STATE_MODULE_TEARDOWNswitch(UAV STATE)STATE_IDLEcheck if there's something in the mission queuerun current_mission-&gt;startup_funpop mission from queueset current_missionset UAV STATE -&gt; STATE_MODULE_STARTUPrun current_mission-&gt;teardown_funset UAV_STATE -&gt; STATE_MODULE_IDLESTATE_MODULE_TEARDOWNcalibrate sensorsturn on all sensorswhile (true)STATE_MODULE_STARTUPset UAV_STATE -&gt; STATE_MODULE_TEARDOWNset UAV STATE -&gt; STATE_MODULE_CORESTATE_MODULE_CORErun current_mission-&gt;core_funif (current_mission-&gt;completed)sleep(10)mission queuemission struct
+......Static Variables
+]]></description><link>projects/project-peregrine/mission-control.html</link><guid isPermaLink="false">projects/project-peregrine/Mission Control.canvas</guid><pubDate>Mon, 22 Jan 2024 20:43:23 GMT</pubDate></item><item><title><![CDATA[Mission Control]]></title><description><![CDATA[ Mission Controlmission_t : current_mission
+enum : uav_state
+queue : mission_queue
+struct bool : completed
+int : status
+void * : data
+void * : setup_func
+void * : core_func
+void * : teardown_func
+enum mission_control_handle_command]]></description><link>projects/project-peregrine/mission-control.html</link><guid isPermaLink="false">projects/project-peregrine/Mission Control.md</guid><pubDate>Fri, 19 Jan 2024 21:59:43 GMT</pubDate></item><item><title><![CDATA[Actuator Control Interface]]></title><description><![CDATA[Public MethodsServosupdate_edf_powerEDFswhile (True)xSemaphoreTake(edf_lock)while (edf_needs_updated())if (edf1_power != edf1_target_power)actuator_control_interface_set_tvc_x(double _x)actuator_control_interface_set_tvc_y(double _y)actuator_control_interface_calibrate_tvc_x_min(uint8_t _deg)actuator_control_interface_calibrate_tvc_x_max(uint8_t _deg)elseedf1_power -= edf1_rateif(edf1_power &gt; edf1_target_power)edf1_power = edf1_target_powerif(edf1_power &lt; edf1_target_power)edf1_power += edf1_rateif (edf2_power != edf2_target_power)if (edf3_power != edf3_target_power)if (edf4_power != edf4_target_power)Note:
+this method will simply return if any of the edf power(s) don't equal their target valueThis is being abstracted to a method for code readabilityif(edf1_power &lt; edf1_target_power)edf1_power = edf1_target_powerset_pwmactuator_control_interface_set_aileron_l(double _l)actuator_control_interface_set_aileron_r(double _r)actuator_control_interface_calibrate_tvc_y_min(uint8_t _deg)actuator_control_interface_calibrate_tvc_y_max(uint8_t _deg)actuator_control_interface_calibrate_aileron_l_min(uint8_t _deg)actuator_control_interface_calibrate_aileron_l_max(uint8_t _deg)actuator_control_interface_calibrate_aileron_r_min(uint8_t _deg)actuator_control_interface_calibrate_aileron_r_max(uint8_t _deg)actuator_control_interface_soft_set_edf_1(uint8_t power, uint8_t rate)actuator_control_interface_soft_set_edf_2(uint8_t power, uint8_t rate)actuator_control_interface_soft_set_edf_3(uint8_t power, uint8_t rate)actuator_control_interface_soft_set_edf_4(uint8_t power, uint8_t rate)actuator_control_interface_set_edf_1(uint8_t power)actuator_control_interface_set_edf_2(uint8_t power)actuator_control_interface_set_edf_3(uint8_t power)actuator_control_interface_set_edf_4(uint8_t power)]]></description><link>projects/project-peregrine/actuator-control-interface.html</link><guid isPermaLink="false">projects/project-peregrine/Actuator Control Interface.canvas</guid><pubDate>Mon, 13 Nov 2023 18:48:40 GMT</pubDate></item><item><title><![CDATA[AACS]]></title><description><![CDATA[Processor : RP2040 (Raspberry Pi Pico W)
+OS : FreeRTOS Sensor Control InterfaceThere are going to be a set of static variables that contain all of the sensor data. These variables are going to be protected using mutexes since they will be continuously updated via the internal sensor reading task and continuously read through the various "public" methods. I need to do some research on what formats would be good for using the numbers in (i.e. should accelerator data be a double between 1 and -1 or is it better represented as an unsigned or signed int?)Documentation for what all the C2 server needs can be found <a data-tooltip-position="top" aria-label="C2 Server > *peripheral*" data-href="C2 Server#*peripheral*" href="projects/project-peregrine/c2/c2-server.html#*peripheral*" class="internal-link" target="_self" rel="noopener nofollow">here</a>Display Mermaid diagrams in this vault?Only allow if you trust this vault's contents.AllowclassDiagram class sensor_control_interface{ - double accelorometer_x; - double accelorometer_y; - double accelorometer_z; - double gyroscope_x; - double gyroscop_y; - double gyroscop_z; - double altitude; - double heading; - double us_distance; - SemaphoreHandle_t mpu_mutex; - SemaphoreHandle_t bmp_mutex; - SemaphoreHandle_t qmc_mutex; - SemaphoreHandle_t hcsr_mutex; - int sensor_error_count; + sensor_control_interface_init(UBaseType_t sensor_task_priority): int + sensor_control_interface_get_accelorometer_x(): double + sensor_control_interface_get_accelorometer_y(): double + sensor_control_interface_get_accelorometer_z(): double + sensor_control_interface_set_accelorometer_x(double _x): void + sensor_control_interface_set_accelorometer_y(double _x): void + sensor_control_interface_set_accelorometer_z(double _z): void + sensor_control_interface_accelerometer_activate(): int + sensor_control_interface_accelerometer_deactivate(): int + sensor_control_interface_get_gyroscope_x(): double + sensor_control_interface_get_gyroscope_y(): double + sensor_control_interface_get_gyroscope_z(): double + sensor_control_interface_set_gyroscope_x(double _x): void + sensor_control_interface_set_gyroscope_y(double _x): void + sensor_control_interface_set_gyroscope_z(double _z): void + sensor_control_interface_gyroscope_activate(): int + sensor_control_interface_gyroscope_deactivate(): int + sensor_control_interface_get_altimeter_altitude(): double + sensor_control_interface_set_altimeter_altitude(double _altitude): int + sensor_control_interface_altimeter_activate(): int + sensor_control_interface_altimeter_deactivate(): int + sensor_control_interface_get_compass_heading(): double + sensor_control_interface_set_compass_heading(double _heading): int + sensor_control_interface_compass_activate(): int + sensor_control_interface_compass_deactivate(): int + sensor_control_interface_get_ultrasonic_distance(): double + sensor_control_interface_set_ultrasonic_distance(double _distance): int + sensor_control_interface_ultrasonic_activate(): int + sensor_control_interface_ultrasonic_deactivate(): int + sensor_control_interface_reset_mpu_6050(): int + sensor_control_interface_reset_bmp_280(): int + sensor_control_interface_reset_qmc _5883l(): int + sensor_control_interface_reset_hc_sr04(): int + sensor_control_interface_task(): int }sensor_control_interface_initGetters:
+sensor_control_interface_get_accelerometer_x
+sensor_control_interface_get_accelerometer_y
+sensor_control_interface_get_accelerometer_z
+Setters:
+sensor_control_interface_set_accelerometer_x
+sensor_control_interface_set_accelerometer_y
+sensor_control_interface_set_accelerometer_z
+Activators:
+sensor_control_interface_accelerometer_activate
+sensor_control_interface_accelerometer_deactivateGetters:
+sensor_control_interface_get_gyroscope_x
+sensor_control_interface_get_gyroscope_y
+sensor_control_interface_get_gyroscope_z
+Setters:
+sensor_control_interface_set_gyroscope_x
+sensor_control_interface_set_gyroscope_y
+sensor_control_interface_set_gyroscope_z
+Activators:
+sensor_control_interface_gyroscope_activate
+sensor_control_interface_gyroscope_deactivateGetters:
+sensor_control_interface_get_altimeter_altitude
+Setters:
+sensor_control_interface_set_altimeter_altitude
+Activators:
+sensor_control_interface_altimeter_activate
+sensor_control_interface_altimeter_deactivateGetters:
+sensor_control_interface_get_compass_heading
+Setters:
+sensor_control_interface_set_compass_heading
+Activators:
+sensor_control_interface_compass_activate
+sensor_control_interface_compass_deactivateGetters:
+sensor_control_interface_get_ultrasonic_distance
+Setters:
+sensor_control_interface_set_ultrasonic_distance
+Activators:
+sensor_control_interface_ultrasonic_activate
+sensor_control_interface_ultrasonic_deactivatesensor_control_interface_tasksensor_control_interface_reset_mpu_6050
+sensor_control_interface_reset_bmp_280
+sensor_control_interface_reset_qmc _5883l
+sensor_control_interface_reset_hc_sr04 Actuator Control Interfaceint calculatePowerChange(int currentPower, int targetPower, int rateOfChange) { // Ensure rateOfChange is within the valid range (1-100) rateOfChange = max(1, min(100, rateOfChange)); // Calculate the remaining difference between currentPower and targetPower int remainingDifference = targetPower - currentPower; // Calculate the adder/subtractor for the given rate of change int change = (remainingDifference * rateOfChange) / 100; // Ensure a minimum change to prevent very slow transitions change = max(change, MIN_CHANGE); // Adjust MIN_CHANGE as needed return change;
+} <br>Documentation for what all the C2 server needs can be found <a data-tooltip-position="top" aria-label="C2 Server > *actuator*" data-href="C2 Server#*actuator*" href="projects/project-peregrine/c2/c2-server.html#*actuator*" class="internal-link" target="_self" rel="noopener nofollow">here</a>The master_control_interface is responsible for high level control over the UAV.<br>Documentation for what all the C2 server needs can be found <a data-tooltip-position="top" aria-label="C2 Server > *flight data*" data-href="C2 Server#*flight data*" href="projects/project-peregrine/c2/c2-server.html#*flight data*" class="internal-link" target="_self" rel="noopener nofollow">here</a>]]></description><link>projects/project-peregrine/aacs.html</link><guid isPermaLink="false">projects/project-peregrine/AACS.md</guid><pubDate>Mon, 13 Nov 2023 18:25:27 GMT</pubDate></item><item><title><![CDATA[C2 Server]]></title><description><![CDATA[
+Flight Data Flight stage
+Full system health status Operational
+Minor error
+Fatal error Network Status View Network Connection Status Connected
+Not Connected View time since last network packet was received Example 20ms Peripheral Data Note: Health status will be broken down into: Operational
+Disconnected
+Faulty View Accelorometer Data Health status
+Activation state
+x,y,z View Gyroscope Data Health status
+Activation state
+x,y,z View Barometric Pressure Data Health status
+Activation state
+altitude View Magnetometer Data Health status
+Activation state
+heading View Ultrasonic Sensor Data Health status
+Activation state
+distance in mm Actuator Data View Motor data x4 Health status
+Power percentage View servo data x4 Health status
+Angle System Data System needs to be capable of uniquely identifying connection
+System needs to be capable of verifying firmware version This contains information pertaining to what data is actually transmitted and received to and from the UAV over the wireless connection.Estimated Total Unique Messages: 46
+debug
+info
+error
+fatal
+managed by <a data-href="AACS#Sensor Control Interface" href="projects/project-peregrine/aacs.html#Sensor Control Interface" class="internal-link" target="_self" rel="noopener nofollow">AACS &gt; Sensor Control Interface</a>
+accelorometer: x
+y
+z
+status : operational, faulty, disconnected
+activation state: activated, deactivated gyroscope: x
+y
+z
+status : operational, faulty, disconnected
+activation state: activated, deactivated altimeter altitude
+status : operational, faulty, disconnected
+activation state: activated, deactivated magnetometer heading
+status : operational, faulty, disconnected
+activation state: activated, deactivated ultrasonic distance
+status : operational, faulty, disconnected
+activation state: activated, deactivated <br>managed by <a data-href="AACS#Actuator Control Interface" href="projects/project-peregrine/aacs.html#Actuator Control Interface" class="internal-link" target="_self" rel="noopener nofollow">AACS &gt; Actuator Control Interface</a>
+motor 1 status : operational, faulty, disconnected
+power percent motor 2 status : operational, faulty, disconnected
+power percent motor 3 status : operational, faulty, disconnected
+power percent motor 4 status : operational, faulty, disconnected
+power percent servo 1 status : operational, faulty, disconnected
+angle servo 2 status : operational, faulty, disconnected
+angle servo 3 status : operational, faulty, disconnected
+angle servo 4 status : operational, faulty, disconnected
+angle <br>managed by <a data-href="AACS#Master Control Interface" href="projects/project-peregrine/aacs.html#Master Control Interface" class="internal-link" target="_self" rel="noopener nofollow">AACS &gt; Master Control Interface</a>
+flight stage
+overall system health
+ready to enter launch stage
+ready to enter target acquisition stage ready to enter stealth surveillance stage
+ready to enter vehicle extraction stage
+ready to enter landing stage C2 User Interface Design C2 System Architecture]]></description><link>projects/project-peregrine/c2/c2-server.html</link><guid isPermaLink="false">projects/project-peregrine/C2/C2 Server.md</guid><pubDate>Wed, 18 Oct 2023 21:59:37 GMT</pubDate></item><item><title><![CDATA[Hardware]]></title><description><![CDATA[The updated version of the peregrine UAV uses a singular RP2040 chip with the CYW43 network card running FreeRTOS<a data-tooltip-position="top" aria-label="https://www.flux.ai/diamond42474/peregrine" rel="noopener nofollow" class="external-link is-unresolved" href="https://www.flux.ai/diamond42474/peregrine" target="_self">PCB Design</a> Master Map
+Barometric Pressure Sensor
+Accelorometer/Gyroscope
+Magnetometer Ultrasonic Sensor (backup is LiDar in case of noise interference) Magnetometer not needed for takeoff stage GPS not needed for takeoff stage
+Temperature Sensor not required
+Communication Type:
+Model :Communication Type:
+Model:Communication Type:
+Model:Technically none of these are NECESSARY although they add extra support for debugging (and they look/sound cool)
+OLED Screen
+Heartbeat LED built-in
+Status LED
+Buzzer
+Communication Type: I2C
+Model: Brushless motor x4
+Servo x2
+ESC x4 Servo x2 not needed for takeoff stage
+Control Type: PWM
+Model: DJIControl Type: PWM
+Model: 2s LIPO PCB Power 6s LIPO Motors / Servos Power <br><img alt="Pasted image 20230915120737.png" src="projects/project-peregrine/assets/pasted-image-20230915120737.png" target="_self"> <img alt="Pasted image 20230915120807.png" src="projects/project-peregrine/assets/pasted-image-20230915120807.png" target="_self">
+STM32F4
+ATMEGA164PU Barometric Pressure
+Accelorometer Ultrasonic Distance
+GPS
+Temperature: x1-5 Theses will use I2C ADC chips (1 can take in 3 analog signals)
+PCB
+Motor 1-4 ESP Wifi Module OLED display
+Buzzer
+LED x10 (STM:4, ATMEGA:5, Passive:1) STM32 Master Status: x3 (Connected to STM32) green
+yellow
+red ATMEGA Master Status: x3 (Connected to ATMEGA)
+PCB power status (Connected to power)
+WiFi Com Status (Connected to ATMEGA)
+STM &gt; ATMEGA Com Status x2 (Connected to ATMEGA &amp; STM32) Micro SD r/w DJI Inspire 1 motor: x4
+Servo: x4 TVC vertical
+TCV horizontal
+Left aileron
+Right aileron ESC: x4 2s LIPO PCB Power 6s LIPO Motor Power Display Mermaid diagrams in this vault?Only allow if you trust this vault's contents.Allowflowchart LR
+subgraph STM32F4 usart1[USART] usart5[USART] i2c1[I2C] gpio1[GPIO] gpio2[GPIO] gpio3[GPIO] gpio4[GPIO] gpio5[GPIO] gpio11[GPIO]
+end
+subgraph ATMEGA164PU usart2[USART] usart4[USART] i2c2[I2C] gpio6[GPIO] gpio7[GPIO] gpio8[GPIO] gpio9[GPIO] gpio10[GPIO]
+end
+subgraph ESPWIFI usart3[USART] wifi1[Wireless Interface]
+end
+subgraph sensors adc1[ADC to I2C] adc2[ADC to I2C] temp1[Temperature Sensor] temp2[Temperature Sensor] temp3[Temperature Sensor] temp4[Temperature Sensor] temp5[Temperature Sensor] bar1[Barometric Pressure Sensor] acc1[Accelorometer] us1[UltraSonic Distance Sensor] gps1[GPS] temp1 --ANALOG--&gt; adc1 temp2 --ANALOG--&gt; adc1 temp3 --ANALOG--&gt; adc1 temp4 --ANALOG--&gt; adc2 temp5 --ANALOG--&gt; adc2
+end
+subgraph status_indicators led1[STM32 GREEN] led2[STM32 YELLOW] led3[STM32 RED] led4[ATMEGA GREEN] led5[ATMEGA YELLOW] led6[ATMEGA RED] led7[PCB Power] led8[WiFi Communication] led9[USART to ATMEGA] led10[USART to STM32] buz1[BUZZER] oled1[OLED Display]
+end
+subgraph movement m1[MOTOR] m2[MOTOR] m3[MOTOR] m4[MOTOR] srv1[TVC Vertical Servo]
+end
+usart1 --USART--&gt; usart2
+usart4 --USART--&gt; usart3 i2c1 --I2C--&gt; bar1
+i2c1 --I2C--&gt; acc1
+i2c1 --I2C--&gt; adc1
+i2c1 --I2C--&gt; adc2
+usart5 --USART--&gt; gps1
+gpio1 --&gt; us1 gpio2 --&gt; led1
+gpio3 --&gt; led2
+gpio4 --&gt; led3
+gpio5 --&gt; led9
+gpio6 --&gt; led4
+gpio7 --&gt; led5
+gpio8 --&gt; led6
+gpio9 --&gt; led8
+gpio10 --&gt; led10
+gpio11 --&gt; buz1
+i2c2 ]]></description><link>projects/project-peregrine/hardware.html</link><guid isPermaLink="false">projects/project-peregrine/Hardware.md</guid><pubDate>Fri, 15 Sep 2023 19:08:08 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Pasted image 20230915120807]]></title><description><![CDATA[<img src="projects/project-peregrine/assets/pasted-image-20230915120807.png" target="_self">]]></description><link>projects/project-peregrine/assets/pasted-image-20230915120807.html</link><guid isPermaLink="false">projects/project-peregrine/assets/Pasted image 20230915120807.png</guid><pubDate>Fri, 15 Sep 2023 19:08:07 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Pasted image 20230915120737]]></title><description><![CDATA[<img src="projects/project-peregrine/assets/pasted-image-20230915120737.png" target="_self">]]></description><link>projects/project-peregrine/assets/pasted-image-20230915120737.html</link><guid isPermaLink="false">projects/project-peregrine/assets/Pasted image 20230915120737.png</guid><pubDate>Fri, 15 Sep 2023 19:07:37 GMT</pubDate><enclosure url="." length="0" type="false"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;.&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
