@@ -10,6 +10,7 @@ NTLDR; Peregrine Constellation is a custom [MANET](https://en.wikipedia.org/wiki
 Instead of needing a special radio (typically expensive), you just plug this thing into your 20-year-old hand-held and you're up and running. Plug another unit into your mobile station and now you have a functioning network. 
 
 # Blog
+- [[2026-11-16]] **Finally Another Step**
 - [[2026-08-23]] **Sync or Sink**
 - [[2026-08-16]] **Ground Work**
 
