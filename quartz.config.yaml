@@ -2,7 +2,7 @@
 # Template: obsidian
 # Optimized for Obsidian vaults with full OFM support and shortest link resolution.
 configuration:
-  pageTitle: Logan Miller
+  pageTitle: Diamond42474
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -112,7 +112,7 @@ plugins:
   - source: "@quartz-themes/core"
     enabled: true
     options:
-      theme: default
+      theme: typewriter
       mode: both
   - source: "@quartz-community/explicit-publish"
     enabled: false

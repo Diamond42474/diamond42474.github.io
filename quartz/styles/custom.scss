@@ -1,3 +1,9 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Match the accent color set in the Obsidian vault (Typewriter theme, #c56b16)
+:root:root,
+:root:root[saved-theme="dark"] {
+  --accent-h: 29;
+  --accent-s: 80%;
+  --accent-l: 43%;
+}
