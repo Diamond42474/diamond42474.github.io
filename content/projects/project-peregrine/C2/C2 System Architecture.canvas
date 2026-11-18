@@ -1,0 +1,23 @@
+{
+	"nodes":[
+		{"id":"c4286b0e6ea10c83","type":"group","x":-140,"y":-560,"width":1280,"height":1000,"label":"C2 Proxy"},
+		{"id":"b1c1069ccc204bb0","type":"group","x":2020,"y":-580,"width":800,"height":980,"label":"C2 Web Interface"},
+		{"id":"ff72d499241fd1df","type":"text","text":"# TCP Socket Handler\n\n*Needed*\n- Starts a new thread for each connection\n- Every connection is treated like the same device \n\t- This is to handle situations where the UAV disconnects and reconnects\n\t- There should only ever be one UAV\n- Command Callback function\n- Send Command function\n- One static socket\n\t- This is overridden when a new connection is received\n\t\t- This way the application is always working with the current connection\n\n*Methods*\n- socket_handler_init(receive_message_callback_function)\n\t- Starts up a new thread\n- socket_handler_send(String)\n\n*Variables*\n- static : socket","x":-120,"y":-180,"width":640,"height":600,"color":"6"},
+		{"id":"0a1aef0e3a56a922","type":"text","text":"# WebSocket Handler","x":540,"y":-180,"width":580,"height":600,"color":"5"},
+		{"id":"e519e539529e7313","type":"text","text":"# Command Manager","x":-120,"y":-540,"width":324,"height":319},
+		{"id":"e5fe26ebe28048ac","type":"file","file":"Project Peregrine/C2/C2 User Interface Design.canvas","x":2040,"y":-540,"width":760,"height":540},
+		{"id":"e097d4da19c3e8e4","type":"text","text":"# WebSocket Client","x":2040,"y":320,"width":320,"height":60,"color":"5"},
+		{"id":"67d2a26642ff4107","type":"text","text":"# Command Handler","x":2040,"y":220,"width":320,"height":70},
+		{"id":"b92a7759d6a82b7f","type":"text","text":"Control Panel","x":2040,"y":60,"width":250,"height":60},
+		{"id":"e4a0eb7959e844c4","type":"text","text":"# UAV TCP Client","x":-900,"y":120,"width":270,"height":60,"color":"6"},
+		{"id":"8593b6ce36232104","type":"text","text":"Mission Planner","x":2550,"y":60,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"6c6038df05b6b91a","fromNode":"b92a7759d6a82b7f","fromSide":"top","toNode":"e5fe26ebe28048ac","toSide":"bottom"},
+		{"id":"6ff0059e791ea29b","fromNode":"67d2a26642ff4107","fromSide":"top","toNode":"b92a7759d6a82b7f","toSide":"bottom"},
+		{"id":"fa5aef6634d1964a","fromNode":"67d2a26642ff4107","fromSide":"top","toNode":"8593b6ce36232104","toSide":"bottom"},
+		{"id":"713cc0f99053e563","fromNode":"67d2a26642ff4107","fromSide":"bottom","toNode":"e097d4da19c3e8e4","toSide":"top"},
+		{"id":"67615c2d8d240913","fromNode":"e097d4da19c3e8e4","fromSide":"left","toNode":"0a1aef0e3a56a922","toSide":"right"},
+		{"id":"e94678ed616287c5","fromNode":"e4a0eb7959e844c4","fromSide":"right","toNode":"ff72d499241fd1df","toSide":"left"}
+	]
+}
