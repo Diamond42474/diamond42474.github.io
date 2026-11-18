@@ -112,7 +112,7 @@ plugins:
   - source: "@quartz-themes/core"
     enabled: true
     options:
-      theme: typewriter
+      theme: cocoa
       mode: both
   - source: "@quartz-community/explicit-publish"
     enabled: false
