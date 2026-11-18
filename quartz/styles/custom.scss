@@ -1,3 +1,13 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Remove the yellow highlight background on internal links / wikilinks
+html body a.internal {
+  background-color: transparent;
+}
+
+// Give transcluded embeds breathing room from their left border
+html[saved-theme="dark"] body blockquote.transclude,
+html[saved-theme="light"] body blockquote.transclude {
+  padding-left: 1rem;
+  margin: 1rem 0;
+}
