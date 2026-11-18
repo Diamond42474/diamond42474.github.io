@@ -11,3 +11,11 @@ html[saved-theme="light"] body blockquote.transclude {
   padding-left: 1rem;
   margin: 1rem 0;
 }
+
+// Burnt-orange accent to match the Obsidian vault (Typewriter accentColor #c56b16)
+:root:root,
+:root:root[saved-theme="dark"] {
+  --accent-h: 29;
+  --accent-s: 80%;
+  --accent-l: 43%;
+}
