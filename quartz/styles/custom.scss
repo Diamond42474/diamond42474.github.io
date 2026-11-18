@@ -11,3 +11,11 @@ html[saved-theme="light"] body blockquote.transclude {
   padding-left: 1rem;
   margin: 1rem 0;
 }
+
+// Make the sidebars and page background match the main body background
+html[saved-theme="dark"] body .page,
+html[saved-theme="dark"] body .page > div#quartz-body div.sidebar,
+html[saved-theme="light"] body .page,
+html[saved-theme="light"] body .page > div#quartz-body div.sidebar {
+  background-color: var(--background-primary) !important;
+}
