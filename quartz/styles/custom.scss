@@ -19,3 +19,8 @@ html[saved-theme="light"] body .page,
 html[saved-theme="light"] body .page > div#quartz-body div.sidebar {
   background-color: var(--background-primary) !important;
 }
+
+// Hide the auto-generated note-title heading on transcluded embeds
+blockquote.transclude > h1:first-child {
+  display: none;
+}
