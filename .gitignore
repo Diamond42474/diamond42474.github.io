@@ -6,3 +6,5 @@ tsconfig.tsbuildinfo
 .obsidian
 .quartz-cache
 .quartz/
+
+.hermes-tmp*
