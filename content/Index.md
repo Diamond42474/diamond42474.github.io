@@ -7,8 +7,7 @@ Links:
 I like the outdoors, exploring, software development, radio communication systems, and some video games from time-to-time. My current project is a device that connects to any analog radio and turns it into a mesh network for off-grid communication. See ([[Peregrine Constellation]])
 
 # Projects
-[[Peregrine Constellation|Peregrine Constellation]]: MANET for legacy radios
-[[project-peregrine|Project Peregrine]]: Autonomous drone for stealth operations
+![[Projects]]
 
-# Blog
+# Blogs
 ![[Blogs]]
